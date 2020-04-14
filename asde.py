@@ -6,12 +6,12 @@ owm = pyowm.OWM("2332ad963bdf036dda9efdf814f954bf", language = "UA")
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-	if api_response_error.NotFoundError = Unable to find the resource:
-		print("Ваш пошуковий запит не знайдено")
 	bot.send_message(message.chat.id, "Привіт, я бот який скаже тобі погоду в любому місці світу =D \n Напиши місто/село в якому ти хочеш дізнатися погоду")
 
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
+	if api_response_error.NotFoundError 'Unable to find the resource':
+		print("Ваш пошуковий запит не знайдено")
 	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')["temp"]
