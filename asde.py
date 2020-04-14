@@ -13,7 +13,7 @@ def welcome(message):
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
 	try:
-	observation = owm.weather_at_place(message.text)
+	obs = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')["temp"]
 	wind = w.get_wind()["speed"]
