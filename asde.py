@@ -11,8 +11,6 @@ def welcome(message):
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
 	observation = owm.weather_at_place(message.text)
-	якщо  api_response_error . NotFoundError :
-		print ( "Ваш пошуковий запис не знайдено" )
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')["temp"]
 	wind = w.get_wind()["speed"]
