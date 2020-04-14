@@ -1,8 +1,10 @@
 import telebot
 import pyowm
 
+
+
 bot = telebot.TeleBot("1115942099:AAHiS44VTAXAyDzfgLBnuRosggEU38x_Jjk")
-owm = pyowm.OWM("2332ad963bdf036dda9efdf814f954bf", language = "UA")
+owm = pyowm.OWM("2332ad963bdf036dda9efdf814f954bf")
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
@@ -10,10 +12,12 @@ def welcome(message):
 
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
+	try:
 	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
 	temp = w.get_temperature('celsius')["temp"]
 	wind = w.get_wind()["speed"]
+
 
 
 	answer = "В місті/селі " + message.text + " зараз " + w.get_detailed_status() + "\n" + "Швидксть вітру: " + str(wind) +" м/с"+ "\n"
@@ -33,5 +37,7 @@ def send_echo(message):
 		answer +="Сьогодні на дворі супер, можеш одянатися як хочеш \n Хорошого дня =)"
 
 	bot.send_message(message.chat.id, answer)
+	except:
+    bot.send_message(message.chat.id,'Ошибка! Город не найден.')
 
 bot.polling( none_stop = True, interval=0 )
