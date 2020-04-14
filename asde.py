@@ -10,7 +10,7 @@ def welcome(message):
 
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
-	if api_response_error.NotFoundError 'Unable to find the resource':
+	if api_response_error.NotFoundError:
 		print("Ваш пошуковий запит не знайдено")
 	observation = owm.weather_at_place(message.text)
 	w = observation.get_weather()
