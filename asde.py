@@ -1,9 +1,13 @@
-# - *- coding: utf- 8 - *-
 import telebot
 import pyowm
+from pyowm import owm
 
 bot = telebot.TeleBot("1115942099:AAHiS44VTAXAyDzfgLBnuRosggEU38x_Jjk")
 owm = pyowm.OWM("2332ad963bdf036dda9efdf814f954bf", language = "UA")
+
+@bot.message_handler(commands=['start'])
+def welcome(message):
+	bot.send_message(message.chat.id, "Привіт, я бот ский скаже тобі погоду в любому місці світу =D")
 
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
