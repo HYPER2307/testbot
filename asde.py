@@ -1,9 +1,5 @@
 # - *- coding: utf- 8 - *-
-import config
-
 import telebot
-from telebot import types
-
 import pyowm
 
 bot = telebot.TeleBot("1115942099:AAHiS44VTAXAyDzfgLBnuRosggEU38x_Jjk")
