@@ -6,7 +6,7 @@ bot = telebot.TeleBot('1115942099:AAHiS44VTAXAyDzfgLBnuRosggEU38x_Jjk')
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
-  bot.send_message(message.chat.id, "Привіт, я бот який скаже тобі погоду в любому місці світу =D \n Напиши населений пункт в якому ти хочеш дізнатися погоду")
+  bot.send_message(message.chat.id, "Привіт, я бот який скаже тобі погоду в любому місці світу =D \n Напиши населений пункт в якому ти хочеш дізнатися погоду \n Стас, дякую тобі за підтримку, ти реально самий найкращий друг, що коли небуть був у мене. Дякую тобі;)")
   bot.send_message(message.chat.id,"Стас, дякую тобі за підтримку, ти реально самий найкращий друг, що коли небуть був у мене. Дякую тобі;)"
 @bot.message_handler(content_types=['text'])
 def send_echo(message):
